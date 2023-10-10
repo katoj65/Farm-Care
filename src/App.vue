@@ -27,13 +27,15 @@ data.auth.getSession().then(response=>{
 const er=response.error;
 console.log(er);
 if(er==null){
-this.login=true;
+this.login=false;
+const user=response.data.session.user.user_metadata;
+this.$store.state.user=user;
+console.log(response);
 }else{
 this.login=false;
 }
 }).catch(error=>{console.log(error);});
 }
-
 },
 mounted(){
 this.user_session();

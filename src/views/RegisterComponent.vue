@@ -90,19 +90,13 @@ emailRedirectTo:'https://docs.google.com/document/d/1OxkLSLd00LnaYSJ63eFtC7QGYL4
 }
 }
 ).then(response=>{
-
 console.log(response);
-
 this.status=true;
-
-
 }).catch(error=>{this.error='Check your internet connection please.'});
 }else{
 this.error='Fill in all fields.';
 }
 }
-
-
 
 }
 

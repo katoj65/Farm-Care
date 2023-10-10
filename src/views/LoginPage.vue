@@ -71,18 +71,41 @@ pass:'1234567890',
 }},
 
 methods:{
-
-
+//
 submit(){
 if(this.form.email!='' && this.form.pass!=''){
-const data=database();
+const data = database();
 data.auth.signInWithPassword({
 email: this.form.email,
 password: this.form.pass,
 }).then(response=>{
 const er=response.error;
 if(er==null){
+const user=response.data.user.user_metadata;
+// console.log(user);
+this.$store.state.user=user;
+//
+data.from('users').select('email')
+.match({email:this.form.email}).
+then(res=>{
+if(res.error==null){
+const count=res.data;
+if(count.length==0){
+//
+data.from('users').insert({
+firstname:user.firstname,
+lastname:user.lastname,
+gender:user.gender,
+tel:user.tel,
+email:this.form.email,
+role:user.role
+}).then(res=>{console.log(res)}).catch(e=>{console.log(e)});
+}
+}
+}).catch(e=>{console.log(e)});
+
 this.$router.push('/');
+
 }else{
 this.error=er;
 }
@@ -90,11 +113,7 @@ this.error=er;
 }else{
 this.error='Fill in your email address and passord';
 }
-
 },
-
-
-
 
 
 

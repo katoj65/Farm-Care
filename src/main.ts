@@ -22,10 +22,30 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { createStore } from 'vuex';
+// Create a new store instance.
+const store = createStore({
+state () {
+return {
+count: 0,
+user:null,
+
+}
+},
+mutations: {
+increment (state) {
+state.count++
+}
+}
+});
+
+
 
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
+  .use(router)
+  .use(store);
+
 
 router.isReady().then(() => {
   app.mount('#app');
