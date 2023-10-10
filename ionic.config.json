@@ -1,0 +1,7 @@
+{
+  "name": "Farm Care",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
