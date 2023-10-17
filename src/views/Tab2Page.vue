@@ -15,8 +15,6 @@
 
 
 
-
-
 <ion-list :inset="true" v-if="reports.length>0">
   <ion-item v-for="(r,key) in reports" :key="key">
     <ion-label>

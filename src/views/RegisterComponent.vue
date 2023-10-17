@@ -5,15 +5,17 @@
 {{ error }}
 </div>
 <div>
-<ion-input label="First name" label-placement="floating" fill="solid" placeholder="Enter first name" v-model="form.firstname"></ion-input>
+<ion-label>First name:</ion-label>
+<ion-input  fill="outline" placeholder="Enter first name" v-model="form.firstname" class="input" ></ion-input>
 </div>
 <div>
-<ion-input label="Last name" label-placement="floating" fill="solid" placeholder="Enter last name" v-model="form.lastname"></ion-input>
+    <ion-label>Last name:</ion-label>
+<ion-input class="input"  fill="outline" placeholder="Enter last name" v-model="form.lastname"></ion-input>
 </div>
 
 <div>
-
-<ion-select aria-label="fruit" placeholder="--Select gender--" v-model="form.gender">
+    <ion-label>Gender:</ion-label>
+<ion-select aria-label="Select" placeholder="--Select--" v-model="form.gender" class="input">
 <ion-select-option value="male">Male</ion-select-option>
 <ion-select-option value="female">Female</ion-select-option>
 </ion-select>
@@ -21,14 +23,17 @@
 </div>
 
 <div>
-<ion-input type="number" label="Telephone number" label-placement="floating" fill="solid" placeholder="Enter telephone number" v-model="form.tel"></ion-input>
+    <ion-label>Telephone number:</ion-label>
+<ion-input type="number"  fill="outline" placeholder="Enter telephone number" v-model="form.tel" class="input"></ion-input>
 </div>
 <div>
-<ion-input label="Email Address" label-placement="floating" fill="solid" placeholder="Enter email address" v-model="form.email"></ion-input>
+    <ion-label>Email address:</ion-label>
+<ion-input class="input" fill="outline" placeholder="Enter email address" v-model="form.email"></ion-input>
 </div>
 
 <div>
-<ion-input type="password" label="Password" label-placement="floating" fill="solid" placeholder="Enter password" v-model="form.pass"></ion-input>
+<ion-label>Password:</ion-label>
+<ion-input class="input" type="password" fill="outline" placeholder="Enter password" v-model="form.pass"></ion-input>
 </div>
 
 <div>
@@ -41,12 +46,12 @@
 
 <script>
 import { logoIonic } from 'ionicons/icons';
-import {IonInput,IonButton,IonSelect, IonSelectOption } from '@ionic/vue';
+import {IonInput,IonButton,IonSelect, IonSelectOption, IonLabel } from '@ionic/vue';
 import database from '@/models/database';
 import SuccessMessage from '@/shared/SuccessMessage.vue';
 export default{
 components:{IonInput,IonButton,IonSelect, IonSelectOption,
-SuccessMessage
+SuccessMessage,IonLabel
 },
 props:{
 screen:{}
@@ -99,7 +104,6 @@ this.error='Fill in all fields.';
 }
 
 }
-
 
 
 

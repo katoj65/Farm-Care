@@ -6,7 +6,11 @@
     <ion-icon :icon="checkmarkCircle" style="font-size:50px;"></ion-icon>
 </ion-card-subtitle>
 </ion-card-header>
-<ion-card-content style="text-align:center;">{{ message }} </ion-card-content>
+<ion-card-content style="text-align:center;">{{ message }}
+</ion-card-content>
+<ion-card-content style="text-align:center;">
+<slot/>
+</ion-card-content>
 </ion-card>
 </template>
 

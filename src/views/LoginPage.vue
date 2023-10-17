@@ -8,19 +8,22 @@
 <h6 style="text-align:center;">{{ screen=='login'?'Login':'Sign Up' }} </h6>
 
 
-<ion-card style="border:solid thin green; margin-top:50px;">
+<ion-card style=" margin-top:50px;">
 <ion-card-header v-if="screen=='login'">
 <ion-card-subtitle v-if="error!=null" style="color:red">{{ error }} </ion-card-subtitle>
 </ion-card-header>
 <ion-card-content style="padding:30px;">
 <form  v-if="screen=='login'" @submit.prevent="submit">
 <div>
-<ion-input label="Email Address" label-placement="floating" fill="solid" placeholder="Enter email address" v-model="form.email"></ion-input>
+<ion-label>Email Address:</ion-label>
+<ion-input class="input" fill="outline" placeholder="Enter email address" v-model="form.email"></ion-input>
 </div>
 <div>
-<ion-input label="Password" label-placement="floating" fill="solid" placeholder="Enter password" v-model="form.pass"></ion-input>
+<ion-label>Password:</ion-label>
+<ion-input fill="outline" placeholder="Enter password" v-model="form.pass" ></ion-input>
 </div>
 <div>
+
 <ion-button color="success" expand="block" type="submit">Login</ion-button>
 </div>
 </form>
@@ -35,8 +38,8 @@
 </template>
 <script>
 
-import { IonContent,IonIcon,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonInput,IonButton  } from '@ionic/vue';
-import { logoIonic } from 'ionicons/icons';
+import { IonContent,IonIcon,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonInput,IonButton,IonLabel  } from '@ionic/vue';
+import { logoIonic,} from 'ionicons/icons';
 import database from '@/models/database';
 import RegisterComponent from './RegisterComponent.vue';
 export default {
@@ -51,7 +54,9 @@ IonCardSubtitle,
  IonCardTitle,
 IonInput,
 IonButton,
-RegisterComponent
+RegisterComponent,
+IonLabel,
+
 },
 
 setup() {
@@ -63,8 +68,7 @@ screen:'login',
 error:null,
 form:{
 email:'katoj65@gmail.com',
-pass:'1234567890',
-
+pass:'1234567890'
 }
 
 
@@ -82,12 +86,10 @@ password: this.form.pass,
 const er=response.error;
 if(er==null){
 const user=response.data.user.user_metadata;
-// console.log(user);
+console.log(user);
 this.$store.state.user=user;
 //
-data.from('users').select('email')
-.match({email:this.form.email}).
-then(res=>{
+data.from('users').select('email').match({email:this.form.email}).then(res=>{
 if(res.error==null){
 const count=res.data;
 if(count.length==0){
@@ -99,12 +101,21 @@ gender:user.gender,
 tel:user.tel,
 email:this.form.email,
 role:user.role
-}).then(res=>{console.log(res)}).catch(e=>{console.log(e)});
+}).then(res=>{console.log(res)
+
+
+
+}).catch(e=>{
+
+console.log(e)
+
+
+});
 }
 }
 }).catch(e=>{console.log(e)});
-
 this.$router.push('/');
+
 
 }else{
 this.error=er;
@@ -118,8 +129,7 @@ this.error='Fill in your email address and passord';
 
 
 
-
-
+//
 screens(){
 if(this.screen=='login'){
 this.screen='register';

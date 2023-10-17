@@ -18,10 +18,10 @@
 
 <form @submit.prevent="submit">
 <div>
-<ion-input label="First name" label-placement="floating" fill="solid" placeholder="Enter first name" v-model="form.firstname"></ion-input>
+<ion-input label="First name" label-placement="floating" fill="outline" placeholder="Enter first name" v-model="form.firstname"></ion-input>
 </div>
 <div>
-<ion-input label="Last name" label-placement="floating" fill="solid" placeholder="Enter last name" v-model="form.lastname"></ion-input>
+<ion-input label="Last name" label-placement="floating" fill="outline" placeholder="Enter last name" v-model="form.lastname"></ion-input>
 </div>
 
 <div>
@@ -34,14 +34,14 @@
 </div>
 
 <div>
-<ion-input type="number" label="Telephone number" label-placement="floating" fill="solid" placeholder="Enter telephone number" v-model="form.tel"></ion-input>
+<ion-input type="number" label="Telephone number" label-placement="floating" fill="outline" placeholder="Enter telephone number" v-model="form.tel"></ion-input>
 </div>
 <div>
-<ion-input label="Email Address" label-placement="floating" fill="solid" placeholder="Enter email address" v-model="form.email"></ion-input>
+<ion-input label="Email Address" label-placement="floating" fill="outline" placeholder="Enter email address" v-model="form.email"></ion-input>
 </div>
 
 <div>
-<ion-input type="password" label="Password" label-placement="floating" fill="solid" placeholder="Enter password" v-model="form.pass"></ion-input>
+<ion-input type="password" label="Password" label-placement="floating" fill="outline" placeholder="Enter password" v-model="form.pass"></ion-input>
 </div>
 
 <div>

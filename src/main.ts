@@ -29,6 +29,11 @@ state () {
 return {
 count: 0,
 user:null,
+email:null,
+role:null,
+firstname:null,
+id:null,
+count_message:null
 
 }
 },
